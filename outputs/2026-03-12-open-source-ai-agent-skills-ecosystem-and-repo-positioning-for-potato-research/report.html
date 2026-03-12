@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Report: Open-source AI agent skills ecosystem and repo positioning for potato-research</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111; line-height: 1.6; margin: 40px auto; max-width: 900px; padding: 0 24px; }
+    h1, h2, h3 { line-height: 1.25; }
+    h1 { font-size: 2.1rem; margin-top: 0; }
+    h2 { margin-top: 2rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.3rem; }
+    code { background: #f3f4f6; padding: 0.1rem 0.3rem; border-radius: 4px; }
+    pre { background: #0f172a; color: #e2e8f0; padding: 16px; border-radius: 10px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; color: inherit; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { padding-left: 1.3rem; }
+    @media print { body { margin: 0 auto; max-width: 100%; } a { color: inherit; } }
+  </style>
+</head>
+<body>
+<h1>Research Report: Open-source AI agent skills ecosystem and repo positioning for potato-research</h1>
+<p><strong>Topic:</strong> Open-source AI agent skills ecosystem and repo positioning for potato-research</p>
+<p><strong>Prepared for:</strong> Open source users</p>
+<p><strong>Prepared on:</strong> 2026-03-12</p>
+<p><strong>Depth:</strong> Detailed</p>
+<p><strong>Status:</strong> Final</p>
+<h2>Executive Summary</h2>
+<ul>
+<li><strong>Core conclusion:</strong> <code>potato-research</code> should be positioned as an open-source, markdown-first research system with a portable agent skill and a public report archive under <code>outputs/</code>.</li>
+<li>The market for reusable agent skills is real and maturing: OpenAI documents Codex skills as first-class reusable workflow units, Anthropic maintains a public skills repository, and community aggregators now curate hundreds of cross-agent skills.</li>
+<li>The strongest differentiation is <strong>not</strong> “AI writes reports.” That is commodity now. The differentiation is: <strong>structured research workflow + reusable skill + publishable markdown outputs + PDF path</strong>.</li>
+<li>A GitHub-native distribution model is strategically correct because markdown renders well, version history is visible, and users can adopt either the source skill folder or packaged <code>.skill</code> artifact.</li>
+<li>The best positioning language is closer to <strong>“research operating system”</strong> or <strong>“research lab”</strong> than “prompt pack.” Buyers and builders care about repeatability, source quality, and output structure.</li>
+<li>The repo should explicitly support <strong>OpenClaw, Claude, Codex, and adjacent agent runtimes</strong> while being honest that small metadata/path adjustments may be needed across ecosystems.</li>
+<li>The canonical artifact should remain <strong>Markdown</strong>, with <strong>HTML/PDF as derived outputs</strong>. This maximizes portability and minimizes format fragility.</li>
+<li>The repo should include both: (1) <strong>skill source</strong> for inspection and adaptation, and (2) <strong>packaged skill artifact</strong> for drop-in installation where supported.</li>
+<li>Near-term upside: become a reference repo for “consulting-style research with agents.” Near-term risk: sounding generic or overclaiming “McKinsey-like” quality without enough examples.</li>
+</ul>
+<h2>Key Questions</h2>
+<p>1. Is there a real open-source ecosystem for reusable AI agent skills?</p>
+<p>2. How should <code>potato-research</code> be packaged so people can use it with OpenClaw, Claude, Codex, and similar tools?</p>
+<p>3. What repo structure and documentation best support adoption?</p>
+<p>4. What positioning is credible and differentiated in a crowded AI tooling market?</p>
+<h2>Methodology</h2>
+<ul>
+<li><strong>Scope:</strong> Public documentation and repositories related to agent skills, cross-agent compatibility, and consulting-style report structure.</li>
+<li><strong>Time horizon:</strong> Current ecosystem snapshot as of 2026-03-12.</li>
+<li><strong>Sources reviewed:</strong> OpenAI Codex Skills documentation, Anthropic public skills repository, community agent skill directories, and consulting/report-structure references.</li>
+<li><strong>Inclusion criteria:</strong> Publicly inspectable sources with direct relevance to skill packaging, distribution, or research-report structuring.</li>
+<li><strong>Known gaps / limitations:</strong> This is a rapid strategic research brief, not a census of every skill ecosystem. Community repositories evolve quickly.</li>
+</ul>
+<h2>Findings</h2>
+<h3>1. Market / Context</h3>
+<p>Reusable agent skills are now a recognizable product category rather than a fringe pattern.</p>
+<p>OpenAI documents Codex skills as reusable packages containing <code>SKILL.md</code> plus optional <code>scripts/</code>, <code>references/</code>, and <code>assets/</code>. Anthropic maintains a public skills repository for Claude. Community aggregators now catalog large cross-agent skill collections and explicitly market compatibility across multiple runtimes.</p>
+<p>This means <code>potato-research</code> is entering a market with:</p>
+<ul>
+<li>clear user demand for reusable agent workflows</li>
+<li>emerging conventions around skill packaging</li>
+<li>increasing appetite for open repositories that can be inspected before install</li>
+</ul>
+<h3>2. Demand Signals</h3>
+<p>The demand signal is strongest among:</p>
+<ul>
+<li>developers using coding agents</li>
+<li>operators and founders doing fast market research</li>
+<li>people who want repeatable output formats rather than one-off chat responses</li>
+<li>users who prefer GitHub-native workflows and versioned deliverables</li>
+</ul>
+<p>The ecosystem evidence suggests users increasingly want:</p>
+<ul>
+<li>installable skill directories</li>
+<li>open repositories with transparent source</li>
+<li>portable instructions across agent runtimes</li>
+<li>practical artifacts rather than abstract prompting advice</li>
+</ul>
+<h3>3. Competitive Landscape</h3>
+<p>The competitive set has three layers:</p>
+<p>#### A. Official ecosystem repositories</p>
+<ul>
+<li>OpenAI’s Codex skills documentation establishes the packaging model and legitimizes skills as a native primitive.</li>
+<li>Anthropic’s public skills repository demonstrates that vendors themselves expect skills to be shared openly.</li>
+</ul>
+<p>#### B. Community aggregators</p>
+<ul>
+<li>Repositories such as VoltAgent’s agent-skills collection aggregate hundreds of skills and emphasize cross-runtime compatibility.</li>
+<li>These repositories increase discovery but also raise the bar: low-quality “prompt dumps” get drowned out.</li>
+</ul>
+<p>#### C. Adjacent research tooling</p>
+<p>Most AI research tools stop at “generate a report.” Fewer provide:</p>
+<ul>
+<li>a reusable agent skill</li>
+<li>a public repo for inspection and forking</li>
+<li>markdown-first outputs with versioning</li>
+<li>a practical PDF path</li>
+</ul>
+<p>That gap is the opening.</p>
+<h3>4. Technical / Operational Considerations</h3>
+<p>The best technical shape for this repo is:</p>
+<ul>
+<li><code>skills/research-report/</code> for the inspectable source skill</li>
+<li><code>packages/research-report.skill</code> for packaged installs</li>
+<li><code>outputs/</code> for generated reports</li>
+<li>a README that explains both the research workflow and cross-agent installation patterns</li>
+</ul>
+<p>Why this works:</p>
+<ul>
+<li>source is inspectable</li>
+<li>packaging is convenient</li>
+<li>outputs are visible and useful as examples</li>
+<li>GitHub becomes both distribution channel and content library</li>
+</ul>
+<p>Markdown should remain canonical because:</p>
+<ul>
+<li>GitHub renders it natively</li>
+<li>diffs are clean</li>
+<li>it is easy to adapt into docs, blogs, wikis, and PDFs</li>
+<li>it avoids getting trapped in brittle binary formats</li>
+</ul>
+<h3>5. Economics / Business Model</h3>
+<p>Open source does not directly monetize the repo, but it can create leverage through:</p>
+<ul>
+<li>reputation and discoverability</li>
+<li>portfolio proof of quality</li>
+<li>lead generation for custom research workflows or consulting</li>
+<li>premium variants later: vertical templates, automation, data connectors, source packs, hosted report generation</li>
+</ul>
+<p>A useful framing:</p>
+<ul>
+<li><strong>open core content layer:</strong> public skill + public example reports</li>
+<li><strong>future monetizable layer:</strong> premium templates, enterprise workflows, hosted pipelines, or bespoke research packs</li>
+</ul>
+<h2>Analysis</h2>
+<h3>What seems true</h3>
+<ul>
+<li>The skill ecosystem is sufficiently real to justify publishing this as an open-source repo.</li>
+<li>The repo should optimize for trust and inspectability, not just convenience.</li>
+<li>“Markdown-first, PDF-optional” is the right systems decision.</li>
+<li>The combination of <strong>skill + outputs + examples</strong> is much stronger than shipping only a skill file.</li>
+<li>The strongest adoption hook is practical utility: “give topic, get structured report.”</li>
+</ul>
+<h3>What is uncertain</h3>
+<ul>
+<li>Whether “McKinsey-like” attracts the right audience or creates avoidable skepticism.</li>
+<li>How much exact compatibility can be promised across OpenClaw, Claude, Codex, and other runtimes without runtime-specific install guides.</li>
+<li>Whether users will care more about the skill itself or the growing archive of published research outputs.</li>
+</ul>
+<h3>What would change the conclusion</h3>
+<ul>
+<li>If agent runtimes converge on a stronger, universal skill spec, repo structure can become even more standardized.</li>
+<li>If PDF demand proves materially higher than expected, a stronger automated export pipeline may be worth adding.</li>
+<li>If public example reports drive more adoption than the skill, the repo may evolve into a hybrid “skill + public research archive” brand.</li>
+</ul>
+<h2>Risks / Counterarguments</h2>
+<ul>
+<li><strong>Risk 1: Generic positioning.</strong> “AI research reports” is a crowded phrase. Without sharp examples, the repo can sound interchangeable.</li>
+<li><strong>Risk 2: Overclaim risk.</strong> “McKinsey-like” implies a quality bar. If examples are weak, the tagline becomes self-inflicted sabotage.</li>
+<li><strong>Risk 3: Cross-agent compatibility drift.</strong> Skill formats are similar but not perfectly identical across all ecosystems.</li>
+</ul>
+<h2>Recommendations</h2>
+<h3>Immediate Actions</h3>
+<ul>
+<li>Publish the repo with a clear structure: <code>skills/</code>, <code>packages/</code>, and <code>outputs/</code>.</li>
+<li>Add installation instructions for OpenClaw, Claude-style setups, and Codex/generic agent workflows.</li>
+<li>Include at least one real report in <code>outputs/</code> so the repo demonstrates, rather than merely claims.</li>
+<li>Keep markdown as the canonical deliverable and document PDF as a derived export path.</li>
+</ul>
+<h3>Next Research Steps</h3>
+<ul>
+<li>Benchmark 5-10 public research/report repos and compare positioning, stars, structure, and examples.</li>
+<li>Test the skill in at least two runtime environments and document any install differences.</li>
+<li>Add 2-3 high-quality public sample reports in different domains: market, technology, and business model.</li>
+</ul>
+<h3>Go / No-Go View</h3>
+<p><strong>Go.</strong> The open-source repo is strategically sound. The category is real, the packaging is credible, and the repo can serve both as a usable tool and as a public proof-of-work asset.</p>
+<h2>Sources</h2>
+<p>1. <a href="https://developers.openai.com/codex/skills/">OpenAI Codex Skills</a> — Documents the skill packaging model, progressive disclosure, and reusable <code>SKILL.md</code> + resources pattern.</p>
+<p>2. <a href="https://github.com/anthropics/skills">Anthropic public skills repository</a> — Confirms vendor-level support for open skills and demonstrates repo-based skill distribution.</p>
+<p>3. <a href="https://github.com/VoltAgent/awesome-agent-skills">VoltAgent awesome-agent-skills</a> — Shows strong community demand for curated, cross-runtime agent skill collections.</p>
+<p>4. <a href="https://agentskills.io">Open Agent Skills standard</a> — Relevant standardization reference cited by official documentation.</p>
+<p>5. <a href="https://venngage.com/blog/consulting-report-template/">Consulting report structure reference</a> — Useful secondary reference for executive-summary-first research structure.</p>
+<h2>Appendix</h2>
+<h3>Suggested public positioning</h3>
+<p><strong>Short description</strong></p>
+<p>A research lab that generates structured, consulting-style reports on any topic using a portable AI agent skill for OpenClaw, Claude, Codex, and similar runtimes.</p>
+<p><strong>Shorter GitHub-friendly variant</strong></p>
+<p>Markdown-first research reports + reusable AI agent skill for OpenClaw, Claude, Codex, and more.</p>
+<h3>Suggested messaging principles</h3>
+<ul>
+<li>Lead with outputs, not prompting theory.</li>
+<li>Show examples quickly.</li>
+<li>Be explicit that markdown is canonical.</li>
+<li>Treat PDF as export, not origin.</li>
+<li>Promise portability, not magical perfect compatibility.</li>
+</ul>
+</body>
+</html>
